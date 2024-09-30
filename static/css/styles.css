@@ -1,8 +1,8 @@
 /*General content (effects everything)*/
 
 @font-face {
-    font-family: 'AlfaSlabOne';
-    src: url('/static/fonts/AlfaSlabOne-Regular.ttf');
+    font-family: 'Base-font';
+    src: url('/static/fonts/ArchivoBlack-Regular.ttf');
 }
 
 * {
@@ -13,7 +13,7 @@
 
 body {
     color: #1b3281;
-    font-family: 'AlfaSlabOne', cursive;
+    font-family: 'Base-font';
     font-weight: 400;
     font-style: normal;
     text-align: center;
@@ -29,14 +29,20 @@ body {
     margin: 2em auto;
     background-color: #fff;
     box-shadow: 0 0 20px #00001a9b;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
 a.interactive {
-    background-color: #fc4421;
     color: #fff;
-    padding: 10px 20px;
+    background-color: #fc4421;
     text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+a.interactive:hover {
+    background-color: #dc4421;
 }
 
 /*End of class assignment*/
@@ -49,20 +55,39 @@ a.interactive {
     box-shadow: 0 0 40px #1b32819b;
 }
 
-#navbar a {
+#navbar > a {
     color: #fff;
     background-color: #fc4421;
     text-decoration: none;
     padding: 10px 20px;
     margin: 20px;
-    font-weight: 200;
     border-radius: 10px;
     box-shadow: 0 0 15px #fc44219b;
 }
 
-#navbar a:hover {
+#navbar > a:hover {
     background-color: #dc4421;
     box-shadow: 0 0 10px #dc44219b;
+}
+
+#navbar > a.active {
+    background-color: #cf4421;
+    box-shadow: 0 0 10px #dc4421;
+}
+
+#menu-container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    position: fixed;
+    padding: 2em;
+    padding-left: 20px;
+    max-width: 300px;
+    margin: 2em auto;
+    background-color: #1b3281;
+    box-shadow: 0 0 20px #1b32819b;
+    border-radius: 20px;
 }
 
 /*end of id assignment*/

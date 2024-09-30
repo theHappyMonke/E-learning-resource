@@ -8,10 +8,10 @@
 
     <body>
         <div id="navbar">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('resources') }}">Resources</a>
-            <a href="{{ url_for('experience') }}">Experience</a>
-            <a href="{{ url_for('course') }}">Course</a>
+            <a href="{{ url_for('home') }}" {% if active=='home' %}class="active"{% endif %}>Home</a>
+            <a href="{{ url_for('resources') }}" {% if active=='resources' %}class="active"{% endif %}>Resources</a>
+            <a href="{{ url_for('experience') }}" {% if active=='experience' %}class="active"{% endif %}>Experience</a>
+            <a href="{{ url_for('course') }}" {% if active=='course' %}class="active"{% endif %}>Course</a>
         </div>
         <br>
         <br>
