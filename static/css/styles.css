@@ -1,0 +1,68 @@
+/*General content (effects everything)*/
+
+@font-face {
+    font-family: 'AlfaSlabOne';
+    src: url('/static/fonts/AlfaSlabOne-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #1b3281;
+    font-family: 'AlfaSlabOne', cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
+
+/*End of general*/
+
+/*Class assignment*/
+
+.content {
+    padding: 2em;
+    max-width: 1000px;
+    margin: 2em auto;
+    background-color: #fff;
+    box-shadow: 0 0 20px #00001a9b;
+    border-radius: 5px;
+}
+
+a.interactive {
+    background-color: #fc4421;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+/*End of class assignment*/
+
+/*Id assignments*/
+
+#navbar {
+    background-color: #1b3281;
+    padding: 1.5em;
+    box-shadow: 0 0 40px #1b32819b;
+}
+
+#navbar a {
+    color: #fff;
+    background-color: #fc4421;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 20px;
+    font-weight: 200;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #fc44219b;
+}
+
+#navbar a:hover {
+    background-color: #dc4421;
+    box-shadow: 0 0 10px #dc44219b;
+}
+
+/*end of id assignment*/

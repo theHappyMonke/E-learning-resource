@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% set base=True %}
     <head>
         <title>E-learning resource</title>
         <link rel="stylesheet" href="/static/css/styles.css">
+        <link rel="icon" href="/static/images/favicon.ico">
     </head>
 
     <body>
         <div id="navbar">
-            <a href="{{ url_for('home') }}">home</a>
-            <a href="{{ url_for('base') }}">base</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('resources') }}">Resources</a>
+            <a href="{{ url_for('experience') }}">Experience</a>
+            <a href="{{ url_for('course') }}">Course</a>
         </div>
-
+        <br>
+        <br>
         {% block content %}{% endblock %}
     </body>
