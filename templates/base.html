@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% set base=True %}
+    <head>
+        <title>E-learning resource</title>
+        <link rel="stylesheet" href="/static/css/styles.css">
+    </head>
+
+    <body>
+        <div id="navbar">
+            <a href="{{ url_for('home') }}">home</a>
+            <a href="{{ url_for('base') }}">base</a>
+        </div>
+
+        {% block content %}{% endblock %}
+    </body>
