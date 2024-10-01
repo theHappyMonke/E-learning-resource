@@ -37,7 +37,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        if id=="signin":
+        if value == "signin":
             try:
                 cursor = connection.cursor()
                 cursor.execute(f"INSERT INTO users VALUES (NULL, '{email}', '{username}', '{password}')")

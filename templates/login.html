@@ -6,32 +6,38 @@
     <h1 id="page-title">Log in/Sign up</h1>
     <div class="login-container">
         <div class="login-content">
-            <form action="{{ url_for('login')}}" method="post"></form>
+            <form action="{{ url_for('login')}}" method="post" id="login" autocomplete = "off">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required>
+                <br>
                 <br>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <br>
+                <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <br>
-                <button type="submit" id="signup">Log in</button>
+                <br>
+                <button type="submit" value="login">Log in</button>
             </form>
         </div>
 
         <div class="login-content">
-            <form action="{{ url_for('login')}}" method="post">
+            <form action="{{ url_for('login')}}" method="post" id="signup" autocomplete = "off">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required>
+                <br>
                 <br>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
                 <br>
+                <br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <br>
-                <button type="submit" id="signup">Sign up</button>
+                <br>
+                <button type="submit" value="signup">Sign up</button>
             </form>
         </div>
     </div>
