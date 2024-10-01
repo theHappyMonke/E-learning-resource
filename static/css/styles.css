@@ -45,6 +45,20 @@ a.interactive:hover {
     background-color: #dc4421;
 }
 
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-content {
+    padding: 1em;
+    width: 400px;
+    margin: 2em auto;
+    background-color: #fff;
+    box-shadow: 0 0 20px #00001a9b;
+    border-radius: 20px;
+}
+
 /*End of class assignment*/
 
 /*Id assignments*/
