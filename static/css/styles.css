@@ -25,19 +25,11 @@ form {
     align-items: center;
 }
 
-input {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    border-style: none;
-    box-shadow: 0 0 15px #00001a9b;
-}
-
 /*End of general*/
 
 /*Class assignment*/
 
-button.form-button {
+button.form {
     color: #fff;
     font-family: 'base-font';
     background-color: #fc4421;
@@ -49,11 +41,18 @@ button.form-button {
     box-shadow: 0 0 15px #fc44219b;
 }
 
-button.form-button:hover {
+button.form:hover {
     background-color: #dc4421;
     box-shadow: 0 0 10px #dc44219b;
 }
 
+input.form {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+    border-style: none;
+    box-shadow: 0 0 15px #00001a9b;
+}
 
 .content {
     padding: 2em;
