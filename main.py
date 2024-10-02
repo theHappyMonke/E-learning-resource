@@ -1,17 +1,36 @@
+# Description: This is the main file for the website. It contains the code for the website and the database.
+# It uses flask to control launching the different pages and sqlite3 to control the database.
+
+
+# The following libraries are imported to allow the website to run.
 from flask import Flask, render_template, request, flash
 import sqlite3
 
+
+####Database content####
+
+# The connection to the database is created here.
+# The 'check_same_thread' is set to false to allow multiple threads to access the database.
 connection = sqlite3.connect('database.db', check_same_thread=False)
 
 cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT NOT NULL, username TEXT NOT NULL, password TEXT NOT NULL)")
 cursor.close()
 
-app = Flask(__name__)
 
+####Flask content####
+
+# The Flask app is created here. The name of the app is the name of the file.
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'this_is_a_very_secret_key'
+
+# App route controls what appears in the url for the different pages.
 @app.route('/')
 @app.route('/home')
 def home():
+    # The 'render_template' syntax is used to render templates in the templates folder.
+    # The reason it uses return is because this is a function and it needs to return an item.
+    # Note that the html if file is not in the templates folder, it will not be shown.
     return render_template('home.html')
 
 @app.route('/course')
@@ -32,34 +51,51 @@ def signin():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    # This is how the login system works. First it checks if the form has been answered by checking if the method is a post.
+    # If not a post, the page loads as normal. It is important that this is done otherwise the page will always return an error.
+    # All errors are handled using the try and except block which prevents the program from crashing.
     if request.method == 'POST':
+        # If the form is a post, it will asign the input values to variables.
+        form_id = request.form['form_id']
         email = request.form['email']
         username = request.form['username']
         password = request.form['password']
 
-        if value == "signin":
+        # To differentiate the functions, the program checks the variable form_id to see if it is a signup or login form.
+        # If it is a signup form, it will insert the email, username and password into the database.
+        if  form_id == "signup":
+            # All errors are handled using the try and except block which prevents the program from crashing.
             try:
                 cursor = connection.cursor()
                 cursor.execute(f"INSERT INTO users VALUES (NULL, '{email}', '{username}', '{password}')")
                 connection.commit()
                 cursor.close()
             except sqlite3.Error as error:
+                flash('Database error')
                 return render_template('login.html')
             finally:
-                render_template('login.html')
-        else:
+                flash('Signup successful')
+                return render_template('login.html')
+        # If it is a login form, it will check the database to see if the email exists.
+        elif form_id == "login":
             try:
+                # If the email exists, it will check the password and the username if they match and if they don't return an error.
                 cursor = connection.cursor()
                 cursor.execute(f"SELECT * FROM users WHERE email={email}")
-                output = cursor.fetchone()
-                print(output)
+                cursor.fetchone()
                 cursor.close()
             except sqlite3.Error as error:
+                flash('Database error')
                 return render_template('login.html')
             finally:
+                flash('Login successful')
                 return render_template('login.html')
+        else:
+            flash('Function error')
+            return render_template('login.html')
     else:
         return render_template('login.html')
 
+# This is the main function that runs the website.
 if __name__ == '__main__':
     app.run(debug=True)

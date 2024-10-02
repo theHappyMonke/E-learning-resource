@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--
+        This is the start of base html. It holds the basic structure and function that is on most pages.
+    -->
     <head>
         <title>E-learning resource</title>
         <link rel="stylesheet" href="/static/css/styles.css">
         <link rel="icon" href="/static/images/favicon.ico">
+        <script src="/static/js/scripts.js"></script>
     </head>
 
     <body>
         <div id="navbar">
+            <!--
+                This is the navigation bar. It is used to navigate between the different pages of the website.
+                There is '(% if active=='home' %)class="active"(% endif %)'' in the a tags.
+                (brackets are used instead of curly brackets to avoid confusion with the jinja2 syntax)
+                This is an if statement that checks if a variable called 'active' is equal to a certain string.
+                This is used to change the appearance of the navigation bar depending on the page that is being displayed.
+            -->
             <a href="{{ url_for('home') }}" {% if active=='home' %}class="active"{% endif %}>Home</a>
             <a href="{{ url_for('resources') }}" {% if active=='resources' %}class="active"{% endif %}>Resources</a>
             <a href="{{ url_for('experience') }}" {% if active=='experience' %}class="active"{% endif %}>Experience</a>
@@ -17,4 +28,9 @@
         <br>
         <br>
         {% block content %}{% endblock %}
+        <!--
+            This is the end of the content block.
+        -->
     </body>
+    
+</html>

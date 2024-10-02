@@ -4,9 +4,35 @@
 
 {% block content %}
     <h1 id="page-title">Log in/Sign up</h1>
+
+    <!--
+        This is a block of code that is used to display flash messages to the user.
+    -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!--
+        This is the login container. It is used to hold the login form and the sign up form.
+        It also helps them be shaped in an orderly fashion.
+    -->
     <div class="login-container">
         <div class="login-content">
+            <!--
+            This is a form, which is used so you may log-in to the system. As you can see, there are two seperate forms on this file
+            with one being used for loggin in and signing up. Notice how they have an id each and a hidden input with the name 'form_id'.
+            This is used to identify each form within flask so they me run seperately depending on which one is used.
+            To understand more about this you should look at the python code where the function is login.
+            -->
+            <h3>Log in to an account</h3>
+            <br>
+            <br>
             <form action="{{ url_for('login')}}" method="post" id="login" autocomplete = "off">
+                <input type="hidden" name="form_id" value="login">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required class="form">
                 <br>
@@ -19,12 +45,16 @@
                 <input type="password" id="password" name="password" required class="form">
                 <br>
                 <br>
-                <button type="submit" value="login" class="form">Log in</button>
+                <button type="submit" class="form">Log in</button>
             </form>
         </div>
 
         <div class="login-content">
+            <h3>Sign up for an account</h3>
+            <br>
+            <br>
             <form action="{{ url_for('login')}}" method="post" id="signup" autocomplete = "off">
+                <input type="hidden" name="form_id" value="signup">
                 <label for="email">Email:</label>
                 <input type="text" id="email" name="email" required class="form">
                 <br>
@@ -37,7 +67,7 @@
                 <input type="password" id="password" name="password" required class="form">
                 <br>
                 <br>
-                <button type="submit" value="signup" class="form">Sign up</button>
+                <button type="submit" class="form">Sign up</button>
             </form>
         </div>
     </div>

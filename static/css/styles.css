@@ -1,15 +1,38 @@
-/*General content (effects everything)*/
+/* General content*/
+/*
+    General content is used to apply styles to all elements regardless of class or id.
+    It is useful for setting up the base styles for the website such as the colours of text or fonts.
+*/
+
+/*
+    Font-face is used to import a font from the server.
+    It is useful for using custom fonts.
+    The font-family is used to reference the font in the CSS.
+    The src is used to reference the location of the font file.
+*/
 
 @font-face {
     font-family: 'Base-font';
     src: url('/static/fonts/ArchivoBlack-Regular.ttf');
 }
 
+/*
+    This snippet * removes the default margin and padding from the body element.
+*/
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+/*
+    The body element is used to apply styles to the entire page.
+    The color is used to set the text colour.
+    The font-family is used to set the font of the text.
+    The font-weight is used to set the thickness of the text.
+    The font-style is used to set the style of the text.
+    The text-align is used to set the alignment of the text.
+*/
 
 body {
     color: #000;
@@ -19,15 +42,24 @@ body {
     text-align: center;
 }
 
+
+/*
+    This effects the forms for the sign up and login pages.
+    It makes sure that they are all formated in the same manner
+*/
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/*End of general*/
+/* End of general */
 
-/*Class assignment*/
+/* Class assignment */
+/*
+    Classes are used to apply styles to multiple elements.
+    This is useful so that there is not reduntant code and it saves development time.
+*/
 
 button.form {
     color: #fff;
@@ -96,9 +128,13 @@ a.interactive:hover {
     border-radius: 20px;
 }
 
-/*End of class assignment*/
+/* End of class assignment */
 
-/*Id assignments*/
+/* Id assignments */
+/*
+    Id's are like classes except they may only be used once per document.
+    They are useful for specifically interacting with one important item
+*/
 
 #page-title {
     color: #1b3281;
@@ -138,11 +174,11 @@ a.interactive:hover {
     right: 3em;
     padding: 2em;
     padding-left: 20px;
-    max-width: 300px;
+    max-width: 30em;
     margin: 2em auto;
     background-color: #1b3281;
     box-shadow: 0 0 20px #1b32819b;
     border-radius: 20px;
 }
 
-/*end of id assignment*/
+/* End of id assignment */
