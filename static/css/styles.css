@@ -40,6 +40,7 @@ body {
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    min-height: 1000px;
 }
 
 
@@ -130,8 +131,9 @@ a.interactive:hover {
 
 /* End of class assignment */
 
-/* Id assignments */
-/*
+/* 
+    Id assignments
+
     Id's are like classes except they may only be used once per document.
     They are useful for specifically interacting with one important item
 */
@@ -141,9 +143,32 @@ a.interactive:hover {
 }
 
 #navbar {
+    position: fixed;
+    top: 0;
+    background-color: #1b3281;
+    padding: 1.5em;
+    height: 70px; /* This is 70px + padding */
+    width: 100%;
+    box-shadow: 0 0 40px #1b32819b;
+    transition: top 0.6s ease; /* This should stay for smooth transition */
+    z-index: 1000;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;  /* Adjust based on actual navbar height */
     background-color: #1b3281;
     padding: 1.5em;
     box-shadow: 0 0 40px #1b32819b;
+    z-index: 1000;
+    transition: transform 0.6s ease-in-out;  /* Smooth animation */
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);  /* Moves the navbar out of view */
 }
 
 #navbar > a {
@@ -166,6 +191,7 @@ a.interactive:hover {
     box-shadow: 0 0 10px #dc4421;
 }
 
+/* This id is for the menu container */
 #menu-container {
     color: #fff;
     display: flex;

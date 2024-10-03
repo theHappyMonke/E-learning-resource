@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--
-        This is the start of base html. It holds the basic structure and function that is on most pages.
-    -->
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>E-learning resource</title>
         <link rel="stylesheet" href="/static/css/styles.css">
-        <link rel="icon" href="/static/images/favicon.ico">
-        <script src="/static/js/scripts.js"></script>
     </head>
 
     <body>
@@ -27,10 +24,15 @@
         </div>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         {% block content %}{% endblock %}
         <!--
             This is the end of the content block.
         -->
+        
+        <script src="/static/js/scripts.js"></script> <!-- Scripts.js connected here -->
     </body>
     
 </html>
