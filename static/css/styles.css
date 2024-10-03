@@ -1,5 +1,6 @@
-/* General content*/
 /*
+    General content
+
     General content is used to apply styles to all elements regardless of class or id.
     It is useful for setting up the base styles for the website such as the colours of text or fonts.
 */
@@ -56,9 +57,10 @@ form {
 
 /* End of general */
 
-/* Class assignment */
 /*
-    Classes are used to apply styles to multiple elements.
+    Class assignment 
+
+    Classes are used to apply styles to multiple elements and are defined in CSS using '.'.
     This is useful so that there is not reduntant code and it saves development time.
 */
 
@@ -116,7 +118,7 @@ a.interactive:hover {
     width: 900px;
     margin: 2em auto;
     background-color: #1b3281;
-    box-shadow: 0 0 20px #1b32819b;
+    box-shadow: 0 0 10px #1b32819b;
     border-radius: 20px;
 }
 
@@ -127,6 +129,19 @@ a.interactive:hover {
     background-color: #fff;
     box-shadow: 0 0 20px #00001a9b;
     border-radius: 20px;
+}
+
+.resource-links {
+    color: #1b3281;
+    text-decoration: none;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);  /* Moves the navbar out of view */
+}
+
+.topic-title {
+    text-decoration: underline;
 }
 
 /* End of class assignment */
@@ -165,10 +180,6 @@ a.interactive:hover {
     box-shadow: 0 0 40px #1b32819b;
     z-index: 1000;
     transition: transform 0.6s ease-in-out;  /* Smooth animation */
-}
-
-.navbar-hidden {
-    transform: translateY(-100%);  /* Moves the navbar out of view */
 }
 
 #navbar > a {

@@ -1,3 +1,4 @@
+// This script is used to hide the navbar when the user scrolls down and show the navbar when the user scrolls up.
 const navbar = document.getElementById('navbar');
 let lastScrollY = window.scrollY;
 

@@ -4,35 +4,59 @@
 
 {% block content %}
     <!--
-        This is the content block. This is where the content of the page will be displayed.
-        It is altered depending on the page that is being displayed.
-    
-
         This is an idea for a menu container. It is used to hold the menu that is displayed on the page.
         It is used to navigate between the different sections of the page.
         This is another use of the id function where is links to content of the page.
+        The plan for this was to have a menu that would allow the user to jump to different sections of the page.
+        It would be useful for a page that has a lot of content so it is still here so you can use snippets.
+        If you remove the comments in the code it will be displayed on the page.
+    -->
 
+    <!--Remove this
     <div id="menu-container">
         <h3><u>Year 1</u></h3>
-        <a class="interactive" href="#ESP">Go to the ESP</a>
-        <a class="interactive" href="#Core">Go to the Core papers</a>
+        <a class="interactive" href="#skills">Go to the Skills bulding</a>
+        <a class="interactive" href="#core">Go to the Core papers</a>
         <br>
+
+        This part was for the old version of the site. It was used to navigate between the different years of the course.
+        The button won't work as the id doesn't exist.
         <h3><u>Year 2</u></h3>
         <a class="interactive" href="#OS">Go to the OS</a>
     </div>
-    -->
+    And this-->
 
     <h1 id="page-title">Resources</h1>
         
     <div class="content">
-        <h2 class="topic-title" id="ESP">Employer set project</h2>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h2 class="topic-title" id="Core">Core papers</h2>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h2 class="topic-title" id="OS">Occupational specialism</h2>
-        <p>This page itself is a useful resource. Press F12 to open the side menu and see the code to operate this site.</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h2 class="topic-title" id="skills">Skills building</h2>
+        <br>
+        <h3>Useful links</h3>
+        <p>There are lots of resources that can help you with your course. Here are some for skills building.</p>
+        <p>A really useful site for a lot of languages is W3Schools: <a class="resource-links" target="_blank" href="https://www.w3schools.com/">Click here to go to site</a></p>
+        <p>A useful site for the main content is this courses sharepoint: <a class="resource-links" target="_blank" href="https://collyer82.sharepoint.com/sites/TLevelDigital">Click here to go to site</a></p>
+        <p>For second years, Miles has a github with a lot of content: <a class="resource-links" target="_blank" href="https://github.com/mfm-collyers">Click here to go to the site</a></p>
+        <br>
+        <br>
+        <h3>Programming content to focus on</h3>
+        <p>There are lots of languages to learn when in this field and lots of content to learn in those languages so knowing what to cover is useful.</p>
+        <p>For year 1 of this course, the focus should be to developing basic skills in python like creating functions and using libraries and string manipulation. This will greatly help for tasks 2 and 4a. The two libraries you should work on in python are Pandas and MatPlotLib. Pandas is used for controlling and manipulating data and MatPlotLib is used for displaying this data. In pandas, you should be able to understand how to single out different types of data and group them together and order them well. For MatPlotLib, you should be able to make a range of tables with this data and label the graph.</p>
+        <p>For year 2 of this course, the focus should be on developing moderate skills in HTML, CSS and two other languages. It is recommended you use python and SQL. For python, you can use Flask to control how your templates (html files) are launched and how they can be effected using variables. You should also use SQLite3 which helps control databases for a website. In SQL, you should be able to understand how to create tables that contain data and link together using primary and foreign keys.</p>
+        <br>
+        <br>
+        <h3>Fundamental skills</h3>
+        <p>For both years, there are a lot of skills that are useful and benefit them and your future careers. Getting these down greatly helps you for your future and in these exams</p>
+        <p>One really good skill to learn, is how to evaluate your work and recieve feedback and work from it. These are extremely useful skills for the whole course, such as: ESP task 4b, OS task 3b and the core papers. Using this skill efficientlty can rack up lots of in areas that can potentially move you up a grade.</p>
+        <p>Another fundamental skill, is the ability to manage your time. This is good for ESP task 1 and the whole of the OS as they are rather big tasks with lots of time and it can be very easy to find this daunting or be relaxed. It is best to use the time given to you to the best of your ability without worrying too much about the time given.</p>
+        <br>
+        <p>This page itself is a useful resource for skills building. Press F12 to open the side menu and see the code to operate this site. You can view all the pages that this site has to offer and see how they are structured.</p>
+        <br>
+        <br>
+        <h2 class="topic-title" id="core">Core papers</h2>
+        <h3>Paper 1</h3>
+        <p>For paper 1, you should focus</p>
+        <br>
+        <br>
     </div>
 
 {% endblock %}

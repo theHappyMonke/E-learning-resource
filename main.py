@@ -20,22 +20,18 @@ cursor.close()
 
 ####Flask content####
 
-# The Flask app is created here. The name of the app is the name of the file.
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'this_is_a_very_secret_key'
+app = Flask(__name__)# The Flask app is created here. The name of the app is the name of the file.
+app.config['SECRET_KEY'] = 'this_is_a_very_secret_key'# This just allows flash to output messages.
 
-# App route controls what appears in the url for the different pages.
-@app.route('/')
+@app.route('/')# App route controls what appears in the url for the different pages.
 @app.route('/home')
 def home():
-    # The 'render_template' syntax is used to render templates in the templates folder.
-    # The reason it uses return is because this is a function and it needs to return an item.
-    # Note that the html if file is not in the templates folder, it will not be shown.
-    return render_template('home.html')
+    return render_template('home.html')# The 'render_template' syntax is used to render templates in the templates folder.
+    # Note: that the html if file is not in the templates folder, it will not be shown.
 
-@app.route('/course')
-def course():
-    return render_template('course.html')
+@app.route('/course-content')
+def coursecontent():
+    return render_template('course-content.html')
 
 @app.route('/resources')
 def resources():
@@ -71,7 +67,7 @@ def login():
                 connection.commit()
                 cursor.close()
             except sqlite3.Error as error:
-                flash('Database error')
+                flash('Database error', error)
                 return render_template('login.html')
             finally:
                 flash('Signup successful')
@@ -81,15 +77,22 @@ def login():
             try:
                 # If the email exists, it will check the password and the username if they match and if they don't return an error.
                 cursor = connection.cursor()
-                cursor.execute(f"SELECT * FROM users WHERE email={email}")
-                cursor.fetchone()
+                cursor.execute(f"SELECT * FROM users WHERE email=='{email}'")
+                check = cursor.fetchone()
                 cursor.close()
             except sqlite3.Error as error:
-                flash('Database error')
+                flash('Database error', error)
                 return render_template('login.html')
             finally:
-                flash('Login successful')
-                return render_template('login.html')
+                if check[2] != username or check[3] != password:
+                    flash('Username or password is incorrect')
+                    return render_template('login.html')
+                elif check[2] == username and check[3] == password:
+                    flash('Login successful')
+                    return render_template('login.html')
+                else:
+                    flash('Function error')
+                    return render_template('login.html')
         else:
             flash('Function error')
             return render_template('login.html')

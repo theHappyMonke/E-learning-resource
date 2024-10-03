@@ -19,20 +19,26 @@
             <a href="{{ url_for('home') }}" {% if active=='home' %}class="active"{% endif %}>Home</a>
             <a href="{{ url_for('resources') }}" {% if active=='resources' %}class="active"{% endif %}>Resources</a>
             <a href="{{ url_for('experience') }}" {% if active=='experience' %}class="active"{% endif %}>Experience</a>
-            <a href="{{ url_for('course') }}" {% if active=='course' %}class="active"{% endif %}>Course</a>
+            <a href="{{ url_for('coursecontent') }}" {% if active=='course-content' %}class="active"{% endif %}>Course-content</a>
             <a href="{{ url_for('login') }}" {% if active=='log in' %}class="active"{% endif %}>Log-in</a>
         </div>
         <br>
         <br>
         <br>
         <br>
-        <br>
+        <!--
+        This is the content block. This is where the content of the page will be displayed.
+        It is altered depending on the page that is being displayed.
+        The program does this by using the 'block' and 'endblock' tags.
+        -->
+
         {% block content %}{% endblock %}
+        
         <!--
             This is the end of the content block.
         -->
         
-        <script src="/static/js/scripts.js"></script> <!-- Scripts.js connected here -->
+        <script src="/static/js/script.js"></script> <!-- Scripts.js connected here -->
     </body>
     
 </html>
