@@ -4,7 +4,9 @@
 
 {% block content %}
     <h1 id="page-title">Log in/Sign up</h1>
-
+    <p>{{login}}</p>
+    <br>
+    <br>
     <!--
         This is a block of code that is used to display flash messages to the user.
     -->
@@ -15,11 +17,11 @@
             {% endfor %}
         {% endif %}
     {% endwith %}
-
     <!--
         This is the login container. It is used to hold the login form and the sign up form.
         It also helps them be shaped in an orderly fashion.
     -->
+    {% if (login_status == 'logged out') %}
     <div class="login-container">
         <div class="login-content">
             <!--
@@ -71,5 +73,8 @@
             </form>
         </div>
     </div>
+    {% else %}
+        <p>Logged in as {{username}}</p>
+    {% endif %}
 
 {% endblock %}

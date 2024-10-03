@@ -6,6 +6,8 @@
 from flask import Flask, render_template, request, flash
 import sqlite3
 
+# Writes the login variable to false to allow the user to login.
+login_status = 'logged out'
 
 ####Database content####
 
@@ -30,7 +32,7 @@ def home():
     # Note: that the html if file is not in the templates folder, it will not be shown.
 
 @app.route('/course-content')
-def coursecontent():
+def courseContent():
     return render_template('course-content.html')
 
 @app.route('/resources')
@@ -41,12 +43,9 @@ def resources():
 def experience():
     return render_template('experience.html')
 
-@app.route('/sign-in', methods=['POST', 'GET'])
-def signin():
-    return render_template('signin.html')
-
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    global login_status
     # This is how the login system works. First it checks if the form has been answered by checking if the method is a post.
     # If not a post, the page loads as normal. It is important that this is done otherwise the page will always return an error.
     # All errors are handled using the try and except block which prevents the program from crashing.
@@ -68,10 +67,11 @@ def login():
                 cursor.close()
             except sqlite3.Error as error:
                 flash('Database error', error)
-                return render_template('login.html')
+                return render_template('login.html', login_status=login_status)
             finally:
                 flash('Signup successful')
-                return render_template('login.html')
+                login_status = 'logged in'
+                return render_template('login.html', login_status=login_status)
         # If it is a login form, it will check the database to see if the email exists.
         elif form_id == "login":
             try:
@@ -82,22 +82,24 @@ def login():
                 cursor.close()
             except sqlite3.Error as error:
                 flash('Database error', error)
-                return render_template('login.html')
+                return render_template('login.html', login_status=login_status)
             finally:
                 if check[2] != username or check[3] != password:
                     flash('Username or password is incorrect')
-                    return render_template('login.html')
+                    return render_template('login.html', login_status=login_status)
                 elif check[2] == username and check[3] == password:
                     flash('Login successful')
-                    return render_template('login.html')
+                    flash('Welcome back ' + username)
+                    login_status = 'logged in'
+                    return render_template('login.html', login_status=login_status)
                 else:
                     flash('Function error')
-                    return render_template('login.html')
+                    return render_template('login.html', login_status=login_status)
         else:
             flash('Function error')
-            return render_template('login.html')
+            return render_template('login.html', login_status=login_status)
     else:
-        return render_template('login.html')
+        return render_template('login.html', login_status=login_status)
 
 # This is the main function that runs the website.
 if __name__ == '__main__':
